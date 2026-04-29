@@ -1,32 +1,18 @@
+import model.Aluno;
+import model.Professor;
+import model.Turma;
+
 void main() {
 
-    List<String> lista = new ArrayList<>();
-    lista.add("João");
-    lista.add("Maria");
-    lista.add("Pedro");
-    //Adiciona deslocando os outros
-    lista.add(1,"Ana");
-    //Substitui
-    lista.set(0, "Teste");
-    lista.add(4, "Joaquim");
+    Professor professor = new Professor("123.123.123-01",
+            "João", 2000);
+    Turma turma = new Turma("POO",professor,
+            new ArrayList<>());
+    turma.adicionar(new Aluno("123","Pedro"));
+    turma.adicionar(new Aluno("312", "Maria"));
+    turma.adicionar(new Aluno("456", "Ana"));
 
-    System.out.println(lista);
-    System.out.println("Tamanho:"+lista.size());
-
-    lista.remove("Teste");
-    System.out.println(lista);
-    System.out.println("Tamanho:"+lista.size());
-
-    System.out.println("Posição 0? "+lista.get(0));
-    System.out.println("Lista tem João? "+lista.contains("João"));
-
-    for(String s: lista){
-        System.out.println(s);
-    }
-
-    for(int i=0;i<lista.size();i++){
-        System.out.println(lista.get(i));
-    }
+    turma.remover(new Aluno("123", "Pedro"));
 
 
 }
