@@ -1,15 +1,17 @@
+import model.Comando;
+import model.Controlador;
+
 void main() {
 
-    Stack<String> pilha = new Stack<>();
-    pilha.push("João");
-    pilha.push("Maria");
-    pilha.push("Pedro");
+    Controlador controlador = new Controlador();
 
-    System.out.println("topo da pilha: "+ pilha.peek());
+    controlador.adicionar(
+            new Comando("Adicionar", "Bom dia,\n")
+    );
+    controlador.adicionar(
+            new Comando("Adicionar", "Aula POO\n")
+    );
 
-    while(!pilha.isEmpty()){
-        System.out.println(pilha.pop());
-    }
-
+    controlador.desfazer();
 
 }
