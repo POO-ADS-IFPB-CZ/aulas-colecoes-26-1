@@ -1,18 +1,15 @@
-import model.Aluno;
-import model.Professor;
-import model.Turma;
-
 void main() {
 
-    Professor professor = new Professor("123.123.123-01",
-            "João", 2000);
-    Turma turma = new Turma("POO",professor,
-            new ArrayList<>());
-    turma.adicionar(new Aluno("123","Pedro"));
-    turma.adicionar(new Aluno("312", "Maria"));
-    turma.adicionar(new Aluno("456", "Ana"));
+    Stack<String> pilha = new Stack<>();
+    pilha.push("João");
+    pilha.push("Maria");
+    pilha.push("Pedro");
 
-    turma.remover(new Aluno("123", "Pedro"));
+    System.out.println("topo da pilha: "+ pilha.peek());
+
+    while(!pilha.isEmpty()){
+        System.out.println(pilha.pop());
+    }
 
 
 }
