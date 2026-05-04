@@ -45,4 +45,8 @@ public class Supermercado {
         return estoque.remove(produto);
     }
 
+    public boolean atualizar(Produto produto){
+        return deleteProduto(produto) && createProduto(produto);
+    }
+
 }
