@@ -1,17 +1,16 @@
-import model.Comando;
-import model.Controlador;
-
 void main() {
 
-    Controlador controlador = new Controlador();
+    Queue<String> fila = new LinkedList<>();
+    fila.offer("João");
+    fila.offer("Maria");
+    fila.offer("Pedro");
+    fila.offer("José");
 
-    controlador.adicionar(
-            new Comando("Adicionar", "Bom dia,\n")
-    );
-    controlador.adicionar(
-            new Comando("Adicionar", "Aula POO\n")
-    );
+    //Não remove
+    System.out.println("Primeiro: "+fila.peek());
 
-    controlador.desfazer();
+    while (!fila.isEmpty()){
+        System.out.println(fila.poll());
+    }
 
 }
