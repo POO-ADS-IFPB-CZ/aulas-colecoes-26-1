@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Produto {
+public class Produto implements Comparable<Produto> {
 
     private int codigo;
     private String descricao;
@@ -59,4 +59,10 @@ public class Produto {
     public int hashCode() {
         return Objects.hashCode(codigo);
     }
+
+    @Override
+    public int compareTo(Produto outro){
+        return codigo-outro.codigo;
+    }
+
 }

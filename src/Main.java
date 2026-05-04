@@ -16,7 +16,7 @@ void main() {
             3));
     supermercado.createProduto(new Produto(4,"Café",
             14));
-    supermercado.createProduto(new Produto(4, "Margarina",
+    supermercado.atualizar(new Produto(4, "Margarina",
             7));
     System.out.println(supermercado.readProdutos());
 
