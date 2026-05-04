@@ -1,16 +1,16 @@
+import model.Produto;
+import model.Supermercado;
+
 void main() {
 
-    Queue<String> fila = new LinkedList<>();
-    fila.offer("João");
-    fila.offer("Maria");
-    fila.offer("Pedro");
-    fila.offer("José");
-
-    //Não remove
-    System.out.println("Primeiro: "+fila.peek());
-
-    while (!fila.isEmpty()){
-        System.out.println(fila.poll());
-    }
+    Supermercado supermercado = new Supermercado("123",
+            "Cajazeiras");
+    supermercado.createProduto(new Produto(1,"Arroz",
+            4.5f));
+    supermercado.createProduto(new Produto(2, "Feijão",
+            8));
+    supermercado.createProduto(new Produto(3, "Macarrão",
+            3));
+    System.out.println(supermercado.readProdutos());
 
 }

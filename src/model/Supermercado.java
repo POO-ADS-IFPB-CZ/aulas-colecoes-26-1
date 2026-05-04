@@ -1,18 +1,20 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Supermercado {
 
     private String cnpj;
     private String nome;
-    private List<Produto> estoque;
+    private Set<Produto> estoque;
 
     public Supermercado(String cnpj, String nome) {
         this.cnpj = cnpj;
         this.nome = nome;
-        estoque = new ArrayList<>();
+        estoque = new HashSet<>();
     }
 
     public String getCnpj() {
@@ -35,7 +37,7 @@ public class Supermercado {
         return estoque.add(produto);
     }
 
-    public List<Produto> readProdutos(){
+    public Set<Produto> readProdutos(){
         return estoque;
     }
 
