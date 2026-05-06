@@ -10,19 +10,11 @@ void main() {
     pessoas.add(new Pessoa("Ana",
             LocalDate.of(2002,3,10)));
 
-    //Classe interna anônima
-    Collections.sort(pessoas, new Comparator<Pessoa>(){
-        @Override
-        public int compare(Pessoa o1, Pessoa o2){
-            return o1.getNome().compareTo(o2.getNome());
-        }
-    });
+    Collections.sort(pessoas, (o1, o2)->
+         o1.getNome().compareTo(o2.getNome())
+    );
     System.out.println(pessoas);
-}
-//Classe interna
-class ComparadorPessoaNome implements Comparator<Pessoa>{
-    @Override
-    public int compare(Pessoa o1, Pessoa o2) {
-        return o1.getNome().compareTo(o2.getNome());
-    }
+    Collections.sort(pessoas, Comparator
+            .comparing(Pessoa::getNascimento));
+    System.out.println(pessoas);
 }
