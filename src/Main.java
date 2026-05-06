@@ -1,29 +1,28 @@
+import model.Pessoa;
+
 void main() {
 
-    List<String> lista = new ArrayList<>();
-    lista.add("João");
-    lista.add("Maria");
-    lista.add("José");
-    lista.add("Ana");
+    List<Pessoa> pessoas = new ArrayList<>();
+    pessoas.add(new Pessoa("João",
+            LocalDate.of(2003,10,4)));
+    pessoas.add(new Pessoa("Maria",
+            LocalDate.of(2000,2,15)));
+    pessoas.add(new Pessoa("Ana",
+            LocalDate.of(2002,3,10)));
 
-    Collections.sort(lista);
-    System.out.println("Lista ordenada: "+lista);
-
-    System.out.println(Collections.binarySearch(lista, "Joaquim"));
-
-    Collections.reverse(lista);
-    System.out.println("Ordem inversa: "+lista);
-
-    System.out.println("Máximo: "+Collections.max(lista));
-    System.out.println("Mínimo: "+Collections.min(lista));
-    Collections.shuffle(lista);
-    System.out.println("Embaralhar: "+lista);
-    Collections.swap(lista, 0, 2);
-    System.out.println(lista);
-
-    List<String> naoModificada = Collections.unmodifiableList(lista);
-    System.out.println(naoModificada);
-    naoModificada.add("Qualquer coisa");
-
-
+    //Classe interna anônima
+    Collections.sort(pessoas, new Comparator<Pessoa>(){
+        @Override
+        public int compare(Pessoa o1, Pessoa o2){
+            return o1.getNome().compareTo(o2.getNome());
+        }
+    });
+    System.out.println(pessoas);
+}
+//Classe interna
+class ComparadorPessoaNome implements Comparator<Pessoa>{
+    @Override
+    public int compare(Pessoa o1, Pessoa o2) {
+        return o1.getNome().compareTo(o2.getNome());
+    }
 }
