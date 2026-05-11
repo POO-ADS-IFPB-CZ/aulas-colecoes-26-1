@@ -2,22 +2,16 @@ import model.Pessoa;
 
 void main() {
 
-    Set<Pessoa> pessoas = new HashSet<>();
-    pessoas.add(new Pessoa("João",
-            LocalDate.of(2003,10,4)));
-    pessoas.add(new Pessoa("Maria",
-            LocalDate.of(2010,2,15)));
-    pessoas.add(new Pessoa("Ana",
-            LocalDate.of(2002,3,10)));
+    String frase = IO.readln("Digite uma frase:");
 
-    System.out.println(pessoas
-        .stream()
-        .mapToInt(
-                p->Period.between(p.getNascimento(),
-                        LocalDate.now()).getYears())
-            .filter(i->i>=18)
-            .sum());
+    Arrays.stream(frase.toUpperCase().split(" "))
+            .distinct()
+            .sorted()
+            .forEach(s -> System.out.println(s));
 
-
+    /*
+    A partir da frase, trazer palavras únicas em ordem crescente
+    e caixa alta. Considerar sem pontuação.
+     */
 
 }
