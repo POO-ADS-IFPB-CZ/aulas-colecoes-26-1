@@ -10,4 +10,14 @@ void main() {
     pessoas.add(new Pessoa("Ana",
             LocalDate.of(2002,3,10)));
 
+    System.out.println(pessoas
+        .stream()
+        .mapToInt(
+                p->Period.between(p.getNascimento(),
+                        LocalDate.now()).getYears())
+            .filter(i->i>=18)
+            .sum());
+
+
+
 }
